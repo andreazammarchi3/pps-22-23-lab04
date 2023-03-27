@@ -1,5 +1,7 @@
 package u04lab.code
 
+import u04lab.ex01.SecondDegreePolynomialImpl
+
 // Express a second degree polynomial
 // Structure: secondDegree * X^2 + firstDegree * X + constant
 trait SecondDegreePolynomial:
@@ -11,7 +13,7 @@ trait SecondDegreePolynomial:
 
 
 object SecondDegreePolynomial:
-  def apply(secondDegree: Double, firstDegree: Double, constant: Double): SecondDegreePolynomial = ??? // Fill here
+  def apply(secondDegree: Double, firstDegree: Double, constant: Double): SecondDegreePolynomial =  SecondDegreePolynomialImpl(constant, firstDegree, secondDegree)
 
 @main def checkComplex(): Unit =
   val simplePolynomial = SecondDegreePolynomial(1.0, 0, 3)
@@ -21,6 +23,9 @@ object SecondDegreePolynomial:
   println((sum, sum.secondDegree, sum.firstDegree, sum.constant)) // 1.0 * X^2 + 1.0 * X + 3.0
   val multipleOperations = fullPolynomial - (anotherPolynomial + simplePolynomial)
   println((multipleOperations, multipleOperations.secondDegree, multipleOperations.firstDegree, multipleOperations.constant)) // 2.0 * X^2 + 1.0 * X + 2.0
+
+  println(simplePolynomial.toString)
+  println(simplePolynomial.equals(SecondDegreePolynomial(1.0, 0, 3)))
 
 /** Hints:
   *   - implement SecondDegreePolynomial with a SecondDegreePolynomialImpl class, similar to PersonImpl in slides
